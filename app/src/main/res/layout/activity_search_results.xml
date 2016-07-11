@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tk.muslimzabirov.myapp.MainActivity">
+    tools:context=".SearchResultsActivity">
 
     <include layout="@layout/toolbar"
-        android:id="@+id/my_toolbar"/>
+        android:id="@+id/search_results_toolbar"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView_main"
-        android:layout_below="@+id/my_toolbar" />
+        android:id="@+id/listView_searchResults"
+        android:layout_below="@+id/search_results_toolbar" />
 
 </RelativeLayout>

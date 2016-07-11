@@ -16,10 +16,10 @@
             </intent-filter>
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value=".SearchReasultsActivity" />
+                android:value=".SearchResultsActivity" />
 
         </activity>
-        <activity android:name=".SearchReasultsActivity">
+        <activity android:name=".SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>

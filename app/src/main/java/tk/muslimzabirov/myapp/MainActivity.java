@@ -8,6 +8,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.my_tb_title);
         getSupportActionBar().setSubtitle(R.string.my_tb_subtitle);
         getSupportActionBar().setIcon(R.drawable.ic_toolbar);
+
+
+        ListView listView = (ListView) findViewById(R.id.listView_main);
+        ArrayAdapter  arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.countries));
+        listView.setAdapter(arrayAdapter);
 
 
 
