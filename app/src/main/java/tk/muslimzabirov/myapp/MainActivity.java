@@ -25,11 +25,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.ic_toolbar);
 
 
-        Intent searchIntent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
-            String query = searchIntent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(MainActivity.this, query, Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override
