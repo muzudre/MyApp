@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setSubtitle(R.string.my_tb_subtitle);
         getSupportActionBar().setIcon(R.drawable.ic_toolbar);
 
+
         Intent searchIntent = getIntent();
         if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
             String query = searchIntent.getStringExtra(SearchManager.QUERY);
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
 
 
