@@ -18,8 +18,11 @@ public class SearchResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
+
         Toolbar my_toolbar = (Toolbar) findViewById(R.id.search_results_toolbar);
         setSupportActionBar(my_toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         Intent searchIntent = getIntent();
