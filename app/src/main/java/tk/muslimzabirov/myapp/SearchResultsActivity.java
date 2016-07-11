@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SearchResultsActivity extends AppCompatActivity {
 
     @Override
@@ -20,16 +22,22 @@ public class SearchResultsActivity extends AppCompatActivity {
         setSupportActionBar(my_toolbar);
 
 
-
         Intent searchIntent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
-            String query = searchIntent.getStringExtra(SearchManager.QUERY);
+        String query = null;
+        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())) {
+            query = searchIntent.getStringExtra(SearchManager.QUERY);
             getSupportActionBar().setTitle(query);
             Toast.makeText(SearchResultsActivity.this, query, Toast.LENGTH_SHORT).show();
         }
 
-        ListView listView = (ListView) findViewById(R.id.listView_main);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.countries));
+        String[] countries = getResources().getStringArray(R.array.countries);
+        ArrayList<String> searchers = new ArrayList<>();
+        for (int i = 0; i < countries.length; i++)
+            if (countries[i].toLowerCase().contains(query.toLowerCase()))
+                searchers.add(countries[i]);
+
+        ListView listView = (ListView) findViewById(R.id.listView_searchResults);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, searchers);
         listView.setAdapter(arrayAdapter);
 
 
